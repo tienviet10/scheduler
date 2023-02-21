@@ -8,11 +8,12 @@ const InterviewerList = (props) => {
       <h4 className="interviewers__header text--light">Interviewer</h4>
       <ul className="interviewers__list">
         {props.interviewers.map((interviewer) =>
-          <InterviewerListItem id={interviewer.id}
+          <InterviewerListItem
+            key={interviewer.id}
             name={interviewer.name}
             avatar={interviewer.avatar}
             selected={props.interviewer === interviewer.id}
-            setInterviewer={props.setInterviewer} />
+            setInterviewer={() => props.setInterviewer(interviewer.id)} />
         )}
       </ul>
     </section>
