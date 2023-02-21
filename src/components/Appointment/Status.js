@@ -1,5 +1,7 @@
 import React from 'react';
 
+// message: String
+
 const Status = (props) => {
   return (
     <main className="appointment__card appointment__card--status">

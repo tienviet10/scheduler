@@ -1,6 +1,10 @@
 import React from 'react';
 import DayListItem from './DayListItem';
 
+// days: object
+// value: string -> chosen day of the week
+// onChange: function
+
 const DayList = (props) => {
   return (
     <ul>

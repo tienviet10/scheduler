@@ -2,6 +2,13 @@ import Button from 'components/Button';
 import InterviewerList from 'components/InterviewerList';
 import React, { useState } from 'react';
 
+// student:String
+// interviewer:Number
+// interviewers:Array
+// onSave:Function
+// onCancel:Function
+// interviewers:Array
+
 const Form = (props) => {
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
