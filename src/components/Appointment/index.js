@@ -7,9 +7,8 @@ import Empty from './Empty';
 const Appointment = (props) => {
   return (
     <article className="appointment">
-      <Header />
-      <Show />
-      <Empty />
+      {props.time && <Header time={props.time} />}
+      {props.interview ? <Show interview={props.interview} /> : <Empty />}
     </article>
   );
 };
