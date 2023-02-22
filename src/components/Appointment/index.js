@@ -12,7 +12,6 @@ const CREATE = "CREATE";
 
 const Appointment = (props) => {
   const { mode, transition, back } = useVisualMode(props.interview ? SHOW : EMPTY);
-  console.log(mode);
   return (
     <article className="appointment">
       {props.time && <Header time={props.time} />}
