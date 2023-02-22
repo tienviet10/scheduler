@@ -1,13 +1,12 @@
+import React, { useState } from 'react';
 import Button from 'components/Button';
 import InterviewerList from 'components/InterviewerList';
-import React, { useState } from 'react';
 
 // student:String
 // interviewer:Number
 // interviewers:Array
 // onSave:Function
 // onCancel:Function
-// interviewers:Array
 
 const Form = (props) => {
   const [student, setStudent] = useState(props.student || "");
@@ -16,6 +15,7 @@ const Form = (props) => {
   const reset = () => {
     setStudent("");
     setInterviewer(null);
+    props.onCancel();
   };
 
   const handleSubmit = (e) => {
@@ -35,12 +35,12 @@ const Form = (props) => {
             onChange={(e) => setStudent(e.target.value)}
           />
         </form>
-        <InterviewerList
+        {/* <InterviewerList
           interviewers={props.interviewers}
           onChange={setInterviewer}
           value={interviewer}
 
-        />
+        /> */}
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
