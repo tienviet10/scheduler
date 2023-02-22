@@ -35,12 +35,11 @@ const Form = (props) => {
             onChange={(e) => setStudent(e.target.value)}
           />
         </form>
-        {/* <InterviewerList
+        <InterviewerList
           interviewers={props.interviewers}
           onChange={setInterviewer}
           value={interviewer}
-
-        /> */}
+        />
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
