@@ -7,8 +7,8 @@ export const useVisualMode = (initial) => {
   const transition = (newMode, replace = false) => {
     setMode(newMode);
 
-    const tempHistory = replace ? history.slice(0, -1) : [...history];
-    setHistory([...tempHistory, newMode]);
+    //const tempHistory = replace ? history.slice(0, -1) : [...history];
+    setHistory(prev => [...prev.slice(0, replace ? -1 : prev.length), newMode]);
   };
 
   const back = () => {
