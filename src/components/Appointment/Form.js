@@ -11,21 +11,18 @@ import InterviewerList from 'components/InterviewerList';
 const Form = (props) => {
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
-  console.log(props.interviewer);
+  // console.log(props.interviewer);
+
   const reset = () => {
     setStudent("");
     setInterviewer(null);
     props.onCancel();
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
   return (
     <main className="appointment__card appointment__card--create">
       <section className="appointment__card-left">
-        <form autoComplete="off" onSubmit={handleSubmit}>
+        <form autoComplete="off">
           <input
             className="appointment__create-input text--semi-bold"
             name="name"
@@ -44,7 +41,7 @@ const Form = (props) => {
       <section className="appointment__card-right">
         <section className="appointment__actions">
           <Button onClick={reset} danger >Cancel</Button>
-          <Button onClick={props.onSave} confirm >Save</Button>
+          <Button onClick={() => props.onSave(student, interviewer)} confirm >Save</Button>
         </section>
       </section>
     </main>
