@@ -27,7 +27,8 @@ const Appointment = (props) => {
       student: name,
       interviewer
     };
-    props.bookInterview(props.id, interview, transition);
+    props.bookInterview(props.id, interview).then(() => transition(SHOW))
+      .catch(error => transition(ERROR_SAVE, true));;
   }
 
   function confirmation() {
@@ -35,8 +36,9 @@ const Appointment = (props) => {
   }
 
   function deleteAppointment() {
-    transition(DELETE);
-    props.cancelInterview(props.id, transition);
+    transition(DELETE, true);
+    props.cancelInterview(props.id).then(() => transition(EMPTY))
+      .catch(error => transition(ERROR_DELETE, true));;
   }
 
   return (
