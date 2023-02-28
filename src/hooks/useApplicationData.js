@@ -22,8 +22,16 @@ function reducer(state, action) {
       };
 
       // OR JUST COUNT THE NULL INTERVIEW
-      const newDays = state.days.map((day) => day.name === state.day && !action.payload.edit ? { ...day, spots: action.payload.interview ? day.spots - 1 : day.spots + 1 } : day
-      );
+      console.log("interview", state.appointments[action.payload.id].interview?.interviewer);
+      console.log("payload", action.payload.interview);
+
+      const isEdit = state.appointments[action.payload.id].interview?.interviewer && action.payload.interview ? true : false;
+      const newDays = state.days.map((day) => day.name === state.day && !isEdit ? { ...day, spots: action.payload.interview ? day.spots - 1 : day.spots + 1 } : day);
+
+      // const calculateSpots = (day) => {
+      //   return day.appointments.map((apptID) => state.appointments[apptID]).reduce((spots, appt) => appt.interview ? spots : spots + 1, 0);
+      // };
+      // const newDays = state.days.map((day) => day.name === state.day ? { ...day, spots: calculateSpots(day) } : day);
 
       return { ...state, appointments, days: newDays };
     }
@@ -43,21 +51,32 @@ const useApplicationData = () => {
   });
 
 
-  const bookInterview = (id, interview, edit) => {
+  const bookInterview = (id, interview) => {
     return axios.put(`/api/appointments/${id}`, { interview }).then(() => {
-      dispatch({ type: SET_INTERVIEW, payload: { id, interview, edit } });
+      //dispatch({ type: SET_INTERVIEW, payload: { id, interview } });
     });
   };
 
   const cancelInterview = (id) => {
     return axios.delete(`/api/appointments/${id}`).then(() => {
-      dispatch({ type: SET_INTERVIEW, payload: { id, interview: null } });
+      // dispatch({ type: SET_INTERVIEW, payload: { id, interview: null } });
     });
   };
 
   const setDay = day => dispatch({ type: SET_DAY, payload: { day } });
 
   useEffect(() => {
+    const exampleSocket = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL, "protocolOne");
+    exampleSocket.onopen = (event) => {
+      exampleSocket.send("ping");
+    };
+    exampleSocket.onmessage = (event) => {
+      const updatedData = JSON.parse(event.data);
+      if (updatedData.type === SET_INTERVIEW) {
+        dispatch({ type: SET_INTERVIEW, payload: { id: updatedData.id, interview: updatedData.interview } });
+      }
+    };
+
     Promise.all([
       axios.get('/api/days'),
       axios.get('/api/appointments'),

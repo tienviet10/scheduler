@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "components/Appointment/styles.scss";
 import Header from './Header';
 import Show from './Show';
@@ -21,14 +21,17 @@ const ERROR_DELETE = "ERROR_DELETE";
 const Appointment = (props) => {
   const { mode, transition, back } = useVisualMode(props.interview ? SHOW : EMPTY);
 
+  useEffect(() => {
+    props.interview?.interviewer ? transition(SHOW) : transition(EMPTY);
+  }, [props.interview]);
+
   function save(name, interviewer) {
     transition(SAVING);
-    const edit = props.interview?.interviewer && true;
     const interview = {
       student: name,
       interviewer
     };
-    props.bookInterview(props.id, interview, edit).then(() => transition(SHOW))
+    props.bookInterview(props.id, interview).then(() => transition(SHOW))
       .catch(error => transition(ERROR_SAVE, true));;
   }
 
@@ -42,11 +45,12 @@ const Appointment = (props) => {
       .catch(error => transition(ERROR_DELETE, true));;
   }
 
+
   return (
     <article className="appointment">
       {props.time && <Header time={props.time} />}
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
-      {mode === SHOW && (
+      {mode === SHOW && props.interview && (
         <Show
           student={props.interview?.student}
           interviewer={props.interview?.interviewer}
