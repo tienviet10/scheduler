@@ -20,7 +20,10 @@ function reducer(state, action) {
         ...state.appointments,
         [action.payload.id]: appointment
       };
-      const newDays = state.days.map((day) => day.name === state.day ? { ...day, spots: action.payload.interview ? day.spots - 1 : day.spots + 1 } : day);
+
+      // OR JUST COUNT THE NULL INTERVIEW
+      const newDays = state.days.map((day) => day.name === state.day && !action.payload.edit ? { ...day, spots: action.payload.interview ? day.spots - 1 : day.spots + 1 } : day
+      );
 
       return { ...state, appointments, days: newDays };
     }
@@ -40,15 +43,14 @@ const useApplicationData = () => {
   });
 
 
-  const bookInterview = (id, interview, transition) => {
-    return axios.put(`http://localhost:8001/api/appointments/${id}`, { interview }).then(() => {
-      dispatch({ type: SET_INTERVIEW, payload: { id, interview } });
+  const bookInterview = (id, interview, edit) => {
+    return axios.put(`/api/appointments/${id}`, { interview }).then(() => {
+      dispatch({ type: SET_INTERVIEW, payload: { id, interview, edit } });
     });
-
   };
 
   const cancelInterview = (id) => {
-    return axios.delete(`http://localhost:8001/api/appointments/${id}`).then(() => {
+    return axios.delete(`/api/appointments/${id}`).then(() => {
       dispatch({ type: SET_INTERVIEW, payload: { id, interview: null } });
     });
   };
@@ -57,9 +59,9 @@ const useApplicationData = () => {
 
   useEffect(() => {
     Promise.all([
-      axios.get('http://localhost:8001/api/days'),
-      axios.get('http://localhost:8001/api/appointments'),
-      axios.get('http://localhost:8001/api/interviewers')
+      axios.get('/api/days'),
+      axios.get('/api/appointments'),
+      axios.get('/api/interviewers')
     ]).then((all) => {
       dispatch({ type: SET_APPLICATION_DATA, payload: { days: all[0].data, appointments: all[1].data, interviewers: all[2].data } });
     });
