@@ -1,6 +1,7 @@
 import React from 'react';
 import InterviewerListItem from './InterviewerListItem';
 import "components/InterviewerList.scss";
+import PropTypes from 'prop-types';
 
 // const interviewers = [
 //   { id: 1, name: "Sylvia Palmer", avatar: "https://i.imgur.com/LpaY82x.png" },
@@ -11,7 +12,7 @@ import "components/InterviewerList.scss";
 // onChange: function
 // value: string
 
-const InterviewerList = (props) => {
+function InterviewerList(props) {
   return (
     <section className="interviewers">
       <h4 className="interviewers__header text--light">Interviewer</h4>
@@ -27,6 +28,10 @@ const InterviewerList = (props) => {
       </ul>
     </section>
   );
+};
+
+InterviewerList.propTypes = {
+  interviewers: PropTypes.array.isRequired
 };
 
 export default InterviewerList;

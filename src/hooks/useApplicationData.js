@@ -4,6 +4,7 @@ import axios from "axios";
 const SET_DAY = "SET_DAY";
 const SET_APPLICATION_DATA = "SET_APPLICATION_DATA";
 const SET_INTERVIEW = "SET_INTERVIEW";
+const url = process.env.REACT_APP_WEBSOCKET_URL || "wss://example.com";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -61,7 +62,7 @@ const useApplicationData = () => {
       dispatch({ type: SET_APPLICATION_DATA, payload: { days: all[0].data, appointments: all[1].data, interviewers: all[2].data } });
     });
 
-    const exampleSocket = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL, "protocolOne");
+    const exampleSocket = new WebSocket(url, "protocolOne");
     exampleSocket.onopen = (event) => {
       exampleSocket.send("ping");
     };
