@@ -22,8 +22,15 @@ function reducer(state, action) {
         [action.payload.id]: appointment
       };
 
-      const isEdit = state.appointments[action.payload.id].interview?.interviewer && action.payload.interview ? true : false;
-      const newDays = state.days.map((day) => day.appointments.includes(action.payload.id) && !isEdit ? { ...day, spots: action.payload.interview ? day.spots - 1 : day.spots + 1 } : day);
+      // METHOD 1:
+      // const isEdit = state.appointments[action.payload.id].interview?.interviewer && action.payload.interview ? true : false;
+      // const newDays = state.days.map((day) => day.appointments.includes(action.payload.id) && !isEdit ? { ...day, spots: action.payload.interview ? day.spots - 1 : day.spots + 1 } : day);
+
+      // METHOD 2:
+      const calculatedSpots = (appts) => {
+        return appts.reduce((count, val) => appointments[val].interview?.interviewer ? count : count + 1, 0);
+      };
+      const newDays = state.days.map((day) => day.appointments.includes(action.payload.id) ? { ...day, spots: calculatedSpots(day.appointments) } : day);
 
       return { ...state, appointments, days: newDays };
     }

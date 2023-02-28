@@ -22,6 +22,7 @@ const Appointment = (props) => {
   const { mode, transition, back } = useVisualMode(props.interview ? SHOW : EMPTY);
 
   useEffect(() => {
+    // maybe add condition to check if it SHOW -> EMPTY OR vice versa
     props.interview?.interviewer ? transition(SHOW) : transition(EMPTY);
   }, [props.interview]);
 
@@ -47,7 +48,7 @@ const Appointment = (props) => {
 
 
   return (
-    <article className="appointment">
+    <article className="appointment" data-testid="appointment">
       {props.time && <Header time={props.time} />}
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
       {mode === SHOW && props.interview && (
