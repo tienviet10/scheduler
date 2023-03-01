@@ -53,6 +53,8 @@ const fixtures = {
   }
 };
 
+
+// Mock GET, PUT, and DELETE request
 export default {
   defaults: { baseURL: "" },
   get: jest.fn(url => {
@@ -63,7 +65,6 @@ export default {
         data: fixtures.days
       });
     }
-
     if (url === "/api/appointments") {
       return Promise.resolve({
         status: 200,
@@ -71,7 +72,6 @@ export default {
         data: fixtures.appointments
       });
     }
-
     if (url === "/api/interviewers") {
       return Promise.resolve({
         status: 200,
@@ -82,8 +82,6 @@ export default {
   }),
   put: jest.fn(url => {
     if (url.includes("/api/appointments/")) {
-      // const urlArr = url.split("/");
-      // const id = urlArr[urlArr.length - 1];
       return Promise.resolve({ status: 204, statusText: "No Content" });
     }
   }),

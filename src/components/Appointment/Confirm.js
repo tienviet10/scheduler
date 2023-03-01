@@ -1,10 +1,6 @@
 import Button from 'components/Button';
 import React from 'react';
 
-// message: String
-// onConfirm: Function
-// onCancel: Function
-
 const Confirm = (props) => {
   return (
     <main className="appointment__card appointment__card--confirm">

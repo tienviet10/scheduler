@@ -1,10 +1,5 @@
 import React from 'react';
 
-// student: String
-// interviewer: Object
-// onEdit: Function
-// onDelete: Function
-
 const Show = (props) => {
   return (
     <main className="appointment__card appointment__card--show">

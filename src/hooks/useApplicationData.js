@@ -12,7 +12,6 @@ const useApplicationData = () => {
     interviewers: {}
   });
 
-
   const bookInterview = (id, interview) => {
     return axios.put(`/api/appointments/${id}`, { interview });
   };
@@ -23,6 +22,7 @@ const useApplicationData = () => {
 
   const setDay = day => dispatch({ type: SET_DAY, payload: { day } });
 
+  // Get initial data and set up web socket
   useEffect(() => {
     Promise.all([
       axios.get('/api/days'),

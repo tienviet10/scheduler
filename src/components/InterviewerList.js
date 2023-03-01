@@ -3,15 +3,6 @@ import InterviewerListItem from './InterviewerListItem';
 import "components/InterviewerList.scss";
 import PropTypes from 'prop-types';
 
-// const interviewers = [
-//   { id: 1, name: "Sylvia Palmer", avatar: "https://i.imgur.com/LpaY82x.png" },
-//   { id: 2, name: "Tori Malcolm", avatar: "https://i.imgur.com/Nmx0Qxo.png" },
-// ];
-
-// interviewers: object
-// onChange: function
-// value: string
-
 function InterviewerList(props) {
   return (
     <section className="interviewers">

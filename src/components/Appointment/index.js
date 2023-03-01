@@ -21,8 +21,8 @@ const ERROR_DELETE = "ERROR_DELETE";
 const Appointment = (props) => {
   const { mode, transition, back } = useVisualMode(props.interview ? SHOW : EMPTY);
 
+  // Modify state when receive a different props.interview from Web Socket
   useEffect(() => {
-    // maybe add condition to check if it SHOW -> EMPTY OR vice versa
     props.interview?.interviewer ? transition(SHOW) : transition(EMPTY);
   }, [props.interview]);
 
@@ -36,6 +36,7 @@ const Appointment = (props) => {
       .catch(error => transition(ERROR_SAVE, true));;
   }
 
+  // Transition to confirmation before actually deleting from database
   function confirmation() {
     transition(CONFIRMATION);
   }
@@ -45,7 +46,6 @@ const Appointment = (props) => {
     props.cancelInterview(props.id).then(() => transition(EMPTY))
       .catch(error => transition(ERROR_DELETE, true));;
   }
-
 
   return (
     <article className="appointment" data-testid="appointment">

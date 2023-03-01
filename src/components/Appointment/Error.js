@@ -1,8 +1,5 @@
 import React from 'react';
 
-// message: String
-// onClose: Function 
-
 const Error = (props) => {
   return (
     <main className="appointment__card appointment__card--error">
