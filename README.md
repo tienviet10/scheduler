@@ -63,25 +63,25 @@
 1. Clone the repository
 
 ```sh
-$ git clone https://github.com/tienviet10/scheduler.git
+git clone https://github.com/tienviet10/scheduler.git
 ```
 
 2. Move to the correct directory
 
 ```sh
-$ cd scheduler
+cd scheduler
 ```
 
 3. Install dependencies
 
 ```sh
-$ npm install
+npm install
 ```
 
 4. Run the application
 
 ```sh
-$ npm start
+npm start
 ```
 
 OR Run Jest test framework:
