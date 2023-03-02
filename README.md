@@ -79,17 +79,17 @@ npm start
 
 
 ## Testing
-- Building and testing UI components in isolation using <a href="https://storybook.js.org/">Storybook</a>
+1. Building and testing UI components in isolation using <a href="https://storybook.js.org/">Storybook</a>
 ```sh
 npm run storybook
 ```
 
-- Unit test and Integration test using <a href="https://jestjs.io/">Jest</a>
+2. Unit test and Integration test using <a href="https://jestjs.io/">Jest</a>
 ```sh
 npm test
 ```
 
-- End-to-End Test using <a href="https://www.cypress.io/">Cypress</a>
+3. End-to-End Test using <a href="https://www.cypress.io/">Cypress</a>
 ```sh
 npm run cypress
 ```
