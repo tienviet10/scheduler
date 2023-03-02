@@ -77,29 +77,22 @@ npm install
 npm start
 ```
 
-OR Run Jest test framework:
 
-```sh
-npm test
-```
-
-OR Run Storybook Visual Testbed
-
+## Testing
+- Building and testing UI components in isolation using <a href="https://storybook.js.org/">Storybook</a>
 ```sh
 npm run storybook
 ```
 
-OR Run Cypress
+- Unit test and Integration test using <a href="https://jestjs.io/">Jest</a>
+```sh
+npm test
+```
 
+- End-to-End Test using <a href="https://www.cypress.io/">Cypress</a>
 ```sh
 npm run cypress
 ```
-
-## Testing
-- Building and testing UI components in isolation using <a href="https://storybook.js.org/">Storybook</a>
-- Unit test and Integration test using <a href="https://jestjs.io/">Jest</a>
-- End-to-End Test using <a href="https://www.cypress.io/">Cypress</a>
-
 
 ## Deployment
 - Continuous integration (CI) with <a href="https://circleci.com/">CircleCI</a>
