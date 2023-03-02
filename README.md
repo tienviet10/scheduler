@@ -109,3 +109,14 @@ $ npm install
 $ npm start
 ```
 
+OR Run Jest test framework:
+
+```sh
+npm test
+```
+
+OR Run Storybook Visual Testbed
+
+```sh
+npm run storybook
+```
