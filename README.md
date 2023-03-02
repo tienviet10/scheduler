@@ -9,7 +9,8 @@
 <p align="center">
   <a href="#final-product">Final Product</a> •
   <a href="#dependencies">Dependencies</a> •
-  <a href="#getting-started">Getting Started</a> 
+  <a href="#getting-started">Getting Started</a> •
+  <a href="#Deployment">Deployment</a>
 </p>
 
 
@@ -86,3 +87,9 @@ OR Run Storybook Visual Testbed
 ```sh
 npm run storybook
 ```
+
+## Deployment
+- Continuous integration (CI) with <a href="https://circleci.com/">CircleCI</a>
+- Frontend is automatically deployed to <a href="https://www.netlify.com/">Netlify</a> from produciton branch
+- Backend is deployed to <a href="https://railway.app/">Railway.app</a>
+- Postgres Database hosted by <a href="https://railway.app/">Railway.app</a>.
