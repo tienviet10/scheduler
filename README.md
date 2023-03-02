@@ -90,6 +90,6 @@ npm run storybook
 
 ## Deployment
 - Continuous integration (CI) with <a href="https://circleci.com/">CircleCI</a>
-- Frontend is automatically deployed to <a href="https://www.netlify.com/">Netlify</a> from produciton branch
+- Frontend is automatically deployed to <a href="https://www.netlify.com/">Netlify</a> from production branch
 - Backend is deployed to <a href="https://railway.app/">Railway.app</a>
 - Postgres Database hosted by <a href="https://railway.app/">Railway.app</a>.
