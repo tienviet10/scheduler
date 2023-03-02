@@ -10,6 +10,7 @@
   <a href="#final-product">Final Product</a> •
   <a href="#dependencies">Dependencies</a> •
   <a href="#getting-started">Getting Started</a> •
+  <a href="#testing">Testing</a> •
   <a href="#Deployment">Deployment</a>
 </p>
 
@@ -87,6 +88,12 @@ OR Run Storybook Visual Testbed
 ```sh
 npm run storybook
 ```
+
+## Testing
+- Building and testing UI components in isolation using <a href="https://storybook.js.org/">Storybook</a>
+- Unit test and Integration test using <a href="https://jestjs.io/">Jest</a>
+- End-to-End Test using <a href="https://www.cypress.io/">Cypress</a>
+
 
 ## Deployment
 - Continuous integration (CI) with <a href="https://circleci.com/">CircleCI</a>
