@@ -4,7 +4,7 @@
   <br>
 </h1>
 
-<h4 align="center">Interview Scheduler is a simple web application built with <a href="https://reactjs.org/">React.js</a> that allows users to book an interview. The backend, made in Node.js (<a href="https://expressjs.com/">Express.js</a>), can be accessed at this <a href="https://github.com/lighthouse-labs/scheduler-api">link.</a></h4>
+<h4 align="center">Interview Scheduler is a simple web application built with <a href="https://reactjs.org/">React.js</a> that allows users to book an interview. The backend, made in Node.js (<a href="https://expressjs.com/">Express.js</a>), can be accessed at this <a href="https://github.com/tienviet10/scheduler-api">link.</a></h4>
 
 <p align="center">
   <a href="#final-product">Final Product</a> •
