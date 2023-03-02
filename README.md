@@ -89,6 +89,12 @@ OR Run Storybook Visual Testbed
 npm run storybook
 ```
 
+OR Run Cypress
+
+```sh
+npm run cypress
+```
+
 ## Testing
 - Building and testing UI components in isolation using <a href="https://storybook.js.org/">Storybook</a>
 - Unit test and Integration test using <a href="https://jestjs.io/">Jest</a>
