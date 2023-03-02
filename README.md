@@ -14,22 +14,13 @@
 
 
 ## Final Product
-1. Home Page:
-  - 
-  - 
+Home Page:
+  - CREATE, EDIT, and DELETE interviews
+  - Web Socket Integration for live update
 
 <p align="center">
-  <img src="">
+  <img src="https://user-images.githubusercontent.com/70352144/222308551-7a434bad-950b-4c89-9cfc-21c1cc68ceaf.gif">
 </p>
-
-2. Page 1:
-  - 
-  - 
-
-<p align="center">
-  <img src="">
-</p>
-
 
 
 ## Dependencies
